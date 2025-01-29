@@ -1,18 +1,26 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "moduleResolution": "Node",
+    "baseUrl": "./",
+    "paths": {
+      "@atoms/*": ["src/components/atoms/*"],
+      "@molecules/*": ["src/components/molecules/*"],
+      "@organisms/*": ["src/components/organisms/*"],
+      "@pages/*": ["src/components/pages/*"],
+      "@store/*": ["src/store/*"],
+      "@api/*": ["src/api/*"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" },
-    {
-      "paths": {
-        "@atoms/*": ["src/components/atoms/*"],
-        "@molecules/*": ["src/components/molecules/*"],
-        "@organisms/*": ["src/components/organisms/*"],
-        "@pages/*": ["src/components/pages/*"],
-        "@store/*": ["src/store/*"],
-        "@api/*": ["src/api/*"]
-      }
-
-    }
+    { "path": "./tsconfig.node.json" }
   ]
 }

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import ChampionPage from "./pages/ChampionPage";
+import ChampionPage from "./pages/ChampionPage.tsx";
 import './App.css'
 
 function App() {
