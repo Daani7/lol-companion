@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchChampions } from "@api/lolApi";
 
@@ -16,7 +17,9 @@ const HomePage = () => {
       <ul>
         {Object.keys(champions).map((championKey) => (
           <li key={championKey}>
-            {champions[championKey].name}
+            <Link to={`/champion/${championKey}`}>
+              {champions[championKey].name}
+            </Link>
           </li>
         ))}
       </ul>
