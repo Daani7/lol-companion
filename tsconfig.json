@@ -2,6 +2,17 @@
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.node.json" },
+    {
+      "paths": {
+        "@atoms/*": ["src/components/atoms/*"],
+        "@molecules/*": ["src/components/molecules/*"],
+        "@organisms/*": ["src/components/organisms/*"],
+        "@pages/*": ["src/components/pages/*"],
+        "@store/*": ["src/store/*"],
+        "@api/*": ["src/api/*"]
+      }
+
+    }
   ]
 }
