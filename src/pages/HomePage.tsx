@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { fetchChampions } from "@api/lolApi";
+import { fetchChampions } from "../api/lolApi";
 
 const HomePage = () => {
   const { data: champions, isLoading, error } = useQuery({

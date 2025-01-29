@@ -1,15 +1,14 @@
-// App.tsx
 import { Routes, Route } from "react-router-dom";
-import ChampionList from "./pages/ChampionList";
+import HomePage from "./pages/HomePage";
 import ChampionPage from "./pages/ChampionPage";
-import TierListPage from "./pages/TierListPage";  // Importation de la page de la tier list
+import TierListPage from "./pages/TierListPage";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<ChampionList />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/champion/:id" element={<ChampionPage />} />
-      <Route path="/tierlist" element={<TierListPage />} /> {/* Route pour la Tier List */}
+      <Route path="/tierlist" element={<TierListPage />} />
     </Routes>
   );
 }
