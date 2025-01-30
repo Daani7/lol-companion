@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Tier List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cette application permet de découvrir, créer et même de gérer une **Tier List** pour les champions de *League of Legends*. Les utilisateurs peuvent ajouter, retirer et organiser les champions dans des catégories (S, A, B, C, D).
 
-Currently, two official plugins are available:
+## Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Affichage des champions de *League of Legends*.
+- Ajout de champions dans différentes catégories.
+- Fonctionnalité de glisser-déposer pour organiser les champions dans les catégories.
+- Utilisation de **Zustand** pour la gestion de l'état.
+- Utilisation de **TanStack Query** pour la gestion des données asynchrones.
+- **Gestion des mutations avec `useMutation`** :
+  - Permet l'ajout et la suppression de champions dans les différentes catégories de la tier list.
+  - Lorsqu'un champion est ajouté ou retiré d'une catégorie, la mutation est effectuée de manière asynchrone, et la liste des champions est rafraîchie.
+  - Utilisation des callbacks `onSuccess`, `onError`, et `onSettled` pour gérer les retours et erreurs lors de la mutation.
 
-## Expanding the ESLint configuration
+## Prérequis
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Avant de commencer, assurez-vous que vous avez les outils suivants installés sur votre machine :
 
-- Configure the top-level `parserOptions` property like this:
+- **Node.js** (version 14 ou supérieure)
+- **npm** (ou **Yarn**)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+### 1. Clonez le dépôt du projet
+
+```bash
+git clone 'https://github.com/Daani7/lol-companion'
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2.  Accédez au répertoire du projet
+```bash
+cd lol-companion
+npm install
+Ou
+yarn install
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+npm run dev
+OU
+yarn dev
 ```
+
+src/
+│
+├── components/             # Composants réutilisables (Atoms, Molecules, Organisms)
+│   ├── TierColomn/         # Composant pour afficher une colonne de champions
+│   └── ...
+├── pages/                  # Pages de l'application
+│   ├── TierListPage/       # Page principale affichant la tier list
+│   └── ...
+├── store/                  # Gestion de l'état avec Zustand
+│   └── useTierListStore.ts # Store pour gérer l'ajout et la suppression de champions
+├── api/                    # Appels API pour récupérer les champions
+│   └── lolApi.ts           # API pour récupérer les champions de League of Legends
+└── ...
+
+### Auteur
+Nom de l'auteur : Derbala Dani
