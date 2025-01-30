@@ -1,0 +1,21 @@
+.search-bar {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.champion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.champion-item {
+  list-style: none;
+}
+
+.champion-link {
+  text-decoration: none;
+  color: black;
+}

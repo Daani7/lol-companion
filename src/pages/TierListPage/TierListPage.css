@@ -1,0 +1,28 @@
+.tier-container {
+  text-align: center;
+}
+
+.tier-select {
+  padding: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.tier-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tier-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tier-button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}

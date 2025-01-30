@@ -1,8 +1,8 @@
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import ChampionPage from "./pages/ChampionPage";
-import TierListPage from "./pages/TierListPage";
-import NavBar from "./components/NavBar";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./components/Navbar/NavBar";
+import HomePage from "./pages/HomePage/HomePage";
+import TierListPage from "./pages/TierListPage/TierListPage";
+import ChampionPage from "./pages/ChampionPage/ChampionPage";
 
 function App() {
   return (

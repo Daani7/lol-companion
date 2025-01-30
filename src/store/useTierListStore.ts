@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import {create} from "zustand";
 
 type TierListState = {
   tierList: { [tier: string]: string[] };
@@ -17,9 +17,12 @@ const useTierListStore = create<TierListState>((set) => ({
   addChampionToTier: (tier, championId) =>
     set((state) => {
       const newTierList = { ...state.tierList };
-      newTierList[tier].push(championId);
+      if (!newTierList[tier].includes(championId)) {
+        newTierList[tier].push(championId);
+      }
       return { tierList: newTierList };
     }),
+
   removeChampionFromTier: (tier, championId) =>
     set((state) => {
       const newTierList = { ...state.tierList };

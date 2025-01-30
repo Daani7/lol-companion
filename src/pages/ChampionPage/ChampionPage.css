@@ -1,0 +1,27 @@
+.champion-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.champion-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.champion-image {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.spell-list {
+  list-style: none;
+  padding: 0;
+}
+
+.spell-list li {
+  margin: 10px 0;
+}

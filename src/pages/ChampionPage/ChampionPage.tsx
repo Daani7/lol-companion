@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { fetchChampionById } from "../api/lolApi";
-import { ChampionSpell } from "../types/Champion.ts";
+import { fetchChampionById } from "../../api/lolApi";
+import { ChampionSpell } from "../../types/Champion";
+import "./ChampionPage.css";
 
 const ChampionPage = () => {
   const { id } = useParams();
-  console.log("Champion ID:", id);
+  const navigate = useNavigate();
   const { data: champion, isLoading, error } = useQuery({
     queryKey: ["champion", id],
     queryFn: () => fetchChampionById(id!),
@@ -15,15 +16,18 @@ const ChampionPage = () => {
   if (error) return <p>Erreur lors du chargement</p>;
 
   return (
-    <div>
+    <div className="champion-container">
+      <button onClick={() => navigate(-1)} className="champion-button">⬅ Retour</button>
       <h1>{champion.name}</h1>
       <img
         src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`}
         alt={champion.name}
+        className="champion-image"
       />
+      <h2>Titre du Champion</h2>
       <p>{champion.title}</p>
       <h2>Sorts :</h2>
-      <ul>
+      <ul className="spell-list">
         {champion.spells.map((spell: ChampionSpell) => (
           <li key={spell.id}>
             <strong>{spell.name}:</strong> {spell.description}
