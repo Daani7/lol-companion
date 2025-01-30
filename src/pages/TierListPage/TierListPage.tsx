@@ -6,7 +6,7 @@ import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea
 
 const TierListPage = () => {
   const [selectedTier, setSelectedTier] = useState("S");
-  const { tierList, addChampionToTier, removeChampionFromTier } = useTierListStore();
+  const { tierList, addChampionToTier } = useTierListStore();
   const { data: champions, isLoading, error } = useQuery({
     queryKey: ["champions"],
     queryFn: fetchChampions,
@@ -17,16 +17,27 @@ const TierListPage = () => {
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
+
     if (!destination) return;
 
     if (source.droppableId === destination.droppableId && source.index === destination.index) {
       return;
     }
 
-    const championId = source.droppableId;
-    removeChampionFromTier(source.droppableId, championId);
+    const championId = tierList[source.droppableId][source.index];
 
-    addChampionToTier(destination.droppableId, championId);
+    const updatedSourceList = [...tierList[source.droppableId]];
+    updatedSourceList.splice(source.index, 1);
+
+    const updatedDestinationList = [...tierList[destination.droppableId]];
+    updatedDestinationList.splice(destination.index, 0, championId);
+
+    useTierListStore.setState((state) => {
+      const newTierList = { ...state.tierList };
+      newTierList[source.droppableId] = updatedSourceList;
+      newTierList[destination.droppableId] = updatedDestinationList;
+      return { tierList: newTierList };
+    });
   };
 
   return (
