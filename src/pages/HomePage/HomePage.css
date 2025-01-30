@@ -1,21 +1,16 @@
-.search-bar {
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  font-size: 16px;
+.homepage {
+  padding: 20px;
+  text-align: center;
 }
 
-.champion-list {
+.cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: center;
+  gap: 20px;
 }
 
-.champion-item {
-  list-style: none;
-}
-
-.champion-link {
-  text-decoration: none;
-  color: black;
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }

@@ -1,11 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
-import { fetchChampions } from "../../api/lolApi";
-import './HomePage.css'
+import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { fetchChampions } from '../../api/lolApi';
+import Card from '../../components/Card/Card';
+import './HomePage.css';
 
 const HomePage = () => {
   const { data: champions, isLoading, error } = useQuery({
-    queryKey: ["champions"],
+    queryKey: ['champions'],
     queryFn: fetchChampions,
   });
 
@@ -13,17 +14,21 @@ const HomePage = () => {
   if (error) return <p>Erreur lors du chargement</p>;
 
   return (
-    <div>
+    <div className="homepage">
       <h1>Liste des Champions</h1>
-      <ul>
-        {Object.keys(champions).map((championKey) => (
-          <li key={championKey}>
-            <Link to={`/champion/${championKey}`}>
-              {champions[championKey].name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className="cards-container">
+        {Object.keys(champions).map((championId) => {
+          const champion = champions[championId];
+          return (
+            <Card
+              key={championId}
+              championId={championId}
+              championName={champion.name}
+              imageUrl={`https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${champion.image.full}`}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

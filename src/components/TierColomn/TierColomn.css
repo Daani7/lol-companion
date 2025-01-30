@@ -1,0 +1,40 @@
+.tier-column {
+  width: 250px;
+  margin: 10px;
+  background-color: #444444;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tier-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.champion-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.champion-item {
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(-220deg ,rgb(0, 74, 80) , rgb(94, 0, 66));
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.champion-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.champion-item img {
+  max-width: 25%;
+}
