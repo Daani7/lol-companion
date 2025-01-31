@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <NavBar />
-    <BrowserRouter basename="/lol-champions">
+    <BrowserRouter basename="/lol-companion">
       <Route path="/" element={<HomePage />} />
       <Route path="/champion/:id" element={<ChampionPage />} />
       <Route path="/tierlist" element={<TierListPage />} />
