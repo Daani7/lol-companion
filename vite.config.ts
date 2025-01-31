@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: "/lol-companion/",
   plugins: [react(), tsconfigPaths()],
   server: {
     hmr: true,
@@ -11,6 +10,7 @@ export default defineConfig({
       usePolling: true,
     },
   },
+  base: "/lol-companion/",
   resolve: {
     alias: {
       '@store': '/src/store',
