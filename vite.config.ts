@@ -4,13 +4,13 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
+  base: "/lol-companion/",
   server: {
     hmr: true,
     watch: {
       usePolling: true,
     },
   },
-  base: "/lol-companion/",
   resolve: {
     alias: {
       '@store': '/src/store',
